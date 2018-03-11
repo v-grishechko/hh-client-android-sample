@@ -1,0 +1,57 @@
+ext.ver = [
+        supportLibs   : '27.0.2',
+        butterknife   : "8.8.1",
+        dagger2       : '2.14.1',
+        moxy          : '1.5.3',
+        retrofit      : '2.3.0',
+        kotlin        : '1.2.30',
+        okhttp        : '3.7.0',
+        moshi         : '1.5.0',
+        epoxy         : '2.10.0',
+        rxjava2       : '2.1.10',
+        glide         : '4.6.1'
+]
+
+ext.sdk = [
+        compile   : 27,
+        min       : 15,
+        target    : 27,
+        buildTools: "27.0.3"
+]
+
+ext.libs = [
+        kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$ver.kotlin",
+        kotlinStdlib            : "org.jetbrains.kotlin:kotlin-stdlib:$ver.kotlin",
+        kotlinReflect           : "org.jetbrains.kotlin:kotlin-reflect:$ver.kotlin",
+        supportV7               : "com.android.support:appcompat-v7:$ver.supportLibs",
+        constraintlayout        : "com.android.support.constraint:constraint-layout:1.0.2",
+        supportDesign           : "com.android.support:design:$ver.supportLibs",
+        dagger2Compiler         : "com.google.dagger:dagger-compiler:$ver.dagger2",
+        dagger2                 : "com.google.dagger:dagger:$ver.dagger2",
+        dagger2Android          : "com.google.dagger:dagger-android-support:$ver.dagger2",
+        dagger2AndroidCompiler  : "com.google.dagger:dagger-android-processor:$ver.dagger2",
+        rxjava2                 : "io.reactivex.rxjava2:rxjava:$ver.rxjava2",
+        moxy                    : "com.arello-mobile:moxy:$ver.moxy",
+        moxyCompiler            : "com.arello-mobile:moxy-compiler:$ver.moxy",
+        retrofit2               : "com.squareup.retrofit2:retrofit:$ver.retrofit",
+        retrofitAdapterRxJava2  : "com.squareup.retrofit2:adapter-rxjava2:$ver.retrofit",
+        crashlytics             : "com.crashlytics.sdk.android:crashlytics:2.8.0",
+        butterknife             : "com.jakewharton:butterknife:$ver.butterknife",
+        butterknifeCompiler     : "com.jakewharton:butterknife-compiler:$ver.butterknife",
+        rxAndroid               : 'io.reactivex.rxjava2:rxandroid:2.0.2',
+        mockitoCore             : "org.mockito:mockito-core:1.10.19",
+        assertj                 : "org.assertj:assertj-core:3.9.0",
+        mockitoKotlin           : "com.nhaarman:mockito-kotlin:1.5.0",
+        junit                   : "junit:junit:4.12",
+        kotlinTest              : "org.jetbrains.kotlin:kotlin-test:$ver.kotlin",
+        kotlinJunit             : "org.jetbrains.kotlin:kotlin-test-junit:$ver.kotlin",
+        loggingInterceptor      : "com.squareup.okhttp3:logging-interceptor:$ver.okhttp",
+        moshi                   : "com.squareup.moshi:moshi:$ver.moshi",
+        moshiAdapters           : "com.squareup.moshi:moshi-adapters:$ver.moshi",
+        moshiConverter          : "com.squareup.retrofit2:converter-moshi:$ver.retrofit",
+        epoxy                   : "com.airbnb.android:epoxy:$ver.epoxy",
+        epoxyCompiler           : "com.airbnb.android:epoxy-processor:$ver.epoxy",
+        timber                  : "com.jakewharton.timber:timber:4.6.1",
+        glide                   : "com.github.bumptech.glide:glide:$ver.glide",
+        glideCompiler           : "com.github.bumptech.glide:compiler:$ver.glide"
+]

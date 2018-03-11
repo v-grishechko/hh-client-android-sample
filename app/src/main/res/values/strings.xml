@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">hh-client-android</string>
+    <string name="label_vacancies">Вакансии</string>
+    <string name="label_vacancy">Вакансия</string>
+    <string name="error_message_general">Что-то пошло не так</string>
+    <string name="button_retry">Повторить</string>
+    <string name="negotiable">Договорная</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/toolbar"/>
+
+    <ViewAnimator
+        android:id="@+id/animator"
+        android:inAnimation="@anim/fade_in"
+        android:outAnimation="@anim/fade_out"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/view_progress"/>
+
+        <include layout="@layout/view_error"/>
+
+        <include layout="@layout/view_full_vacancy"/>
+
+    </ViewAnimator>
+
+</LinearLayout>

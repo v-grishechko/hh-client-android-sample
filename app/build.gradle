@@ -1,0 +1,109 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply from: '../dependencies.gradle'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion sdk.compile
+    buildToolsVersion sdk.buildTools
+
+    defaultConfig {
+        applicationId "com.vgrishechco.hh"
+        minSdkVersion sdk.min
+        targetSdkVersion sdk.target
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        def versionMajor = 1
+        def versionMinor = 0
+        def versionPatch = 0
+        def versionBuild = 0
+
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+
+        versionName buildVersionName(versionMajor, versionMinor, versionPatch)
+        versionCode buildVersionCode(versionMajor, versionMinor, versionPatch, versionBuild)
+
+        resConfigs "ru"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude "NOTICE"
+        exclude "asm-license.txt"
+        exclude "META-INF/INDEX.LIST"
+        exclude 'META-INF/io.netty.versions.properties'
+        pickFirst "META-INF/rxjava.properties"
+        pickFirst "META-INF/LICENSE"
+    }
+
+    sourceSets {
+        main {
+            file('src/main/res-screen')
+                    .listFiles()
+                    .each { res.srcDirs += it.path }
+        }
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+}
+
+static def buildVersionName(versionMajor, versionMinor, versionPatch) {
+    return "${versionMajor}.${versionMinor}.${versionPatch}"
+}
+
+static def buildVersionCode(versionMajor, versionMinor, versionPatch, versionBuild) {
+    return versionMajor * 100000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+dependencies {
+    implementation libs.kotlin
+    implementation libs.supportV7
+    implementation libs.constraintlayout
+    implementation libs.supportDesign
+    implementation libs.dagger2
+    implementation libs.dagger2Android
+    implementation libs.rxjava2
+    implementation libs.moxy
+    implementation libs.retrofit2
+    implementation libs.retrofitAdapterRxJava2
+    implementation libs.crashlytics
+    implementation libs.butterknife
+    implementation libs.rxAndroid
+    implementation libs.loggingInterceptor
+    implementation libs.moshi
+    implementation libs.moshiAdapters
+    implementation libs.moshiConverter
+    implementation libs.epoxy
+    implementation libs.timber
+    implementation libs.glide
+
+    kapt libs.epoxyCompiler
+    kapt libs.dagger2Compiler
+    kapt libs.dagger2AndroidCompiler
+    kapt libs.moxyCompiler
+    kapt libs.butterknifeCompiler
+    kapt libs.glideCompiler
+
+    testImplementation libs.junit
+    testImplementation libs.assertj
+    testImplementation libs.mockitoKotlin
+    testImplementation libs.kotlinJunit
+    testImplementation libs.kotlinTest
+}
