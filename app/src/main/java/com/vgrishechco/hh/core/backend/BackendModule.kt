@@ -4,6 +4,7 @@ import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Rfc3339DateJsonAdapter
 import com.vgrishechco.hh.core.backend.api.HeadHunterApi
+import com.vgrishechco.hh.core.backend.interceptor.HttpHostInterceptor
 import com.vgrishechco.hh.core.backend.network.HttpCache
 import com.vgrishechco.hh.core.moshi.adapter.UriAdapter
 import com.vgrishechco.hh.utils.AppInfo
@@ -72,7 +73,7 @@ class BackendModule {
     @Provides
     @Singleton
     fun provideHttpInterceptors(httpLoggingInterceptor: HttpLoggingInterceptor): ArrayList<Interceptor> {
-        return arrayListOf(httpLoggingInterceptor)
+        return arrayListOf(httpLoggingInterceptor, HttpHostInterceptor())
     }
 
     @Provides
@@ -93,4 +94,8 @@ class BackendModule {
 
         return HttpLoggingInterceptor(logger).apply { level = HttpLoggingInterceptor.Level.BODY }
     }
+
+    @Singleton
+    @Provides
+    fun provideHttpHostInterceptor(): HttpHostInterceptor = HttpHostInterceptor()
 }

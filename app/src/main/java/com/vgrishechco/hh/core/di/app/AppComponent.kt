@@ -3,6 +3,7 @@ package com.vgrishechco.hh.core.di.app
 import android.app.Application
 import com.vgrishechco.hh.App
 import com.vgrishechco.hh.core.backend.BackendModule
+import com.vgrishechco.hh.core.backend.interceptor.HttpHostInterceptor
 import com.vgrishechco.hh.core.di.ActivityBuilder
 import dagger.BindsInstance
 import dagger.Component
@@ -18,6 +19,8 @@ import javax.inject.Singleton
         ActivityBuilder::class
 ))
 interface AppComponent {
+
+    fun hostInterceptor(): HttpHostInterceptor
 
     @Component.Builder
     interface Builder {

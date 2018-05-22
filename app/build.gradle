@@ -16,7 +16,7 @@ android {
         targetSdkVersion sdk.target
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.vgrishechko.hh.HhInstrumentationRunner"
 
         def versionMajor = 1
         def versionMinor = 0
@@ -34,6 +34,11 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            multiDexEnabled true
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -56,6 +61,7 @@ android {
                     .each { res.srcDirs += it.path }
         }
         test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
 
 }
@@ -93,6 +99,7 @@ dependencies {
     implementation libs.epoxy
     implementation libs.timber
     implementation libs.glide
+    implementation libs.multidex
 
     kapt libs.epoxyCompiler
     kapt libs.dagger2Compiler
@@ -106,4 +113,10 @@ dependencies {
     testImplementation libs.mockitoKotlin
     testImplementation libs.kotlinJunit
     testImplementation libs.kotlinTest
+
+    androidTestImplementation libs.espresso
+    androidTestImplementation libs.androidTestRules
+    androidTestImplementation libs.androidTestRunner
+    androidTestImplementation libs.kakao
+    androidTestImplementation libs.kmockserver
 }

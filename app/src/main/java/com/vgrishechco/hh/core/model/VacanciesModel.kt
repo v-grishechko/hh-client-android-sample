@@ -19,4 +19,5 @@ class VacanciesModel @Inject constructor(private val api: HeadHunterApi) {
     fun vacancy(id: Long): Single<Vacancy> {
         return api.getVacancy(id)
     }
+
 }
